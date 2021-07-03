@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/users.css" />
+    <script src="https://kit.fontawesome.com/b249158e0f.js" crossorigin="anonymous"></script>
+    <title>Información de los Usuarios</title>
+  </head>
+  <body>
+    <header class="cont-header">
+      <h1>Información de los Usuarios</h1>
+    </header>
+    <main>
+      <div class="cont-principal">
+        <div class="cont-botones">
+          <button id="previous">anterior</button>
+          <button id="next">siguiente</button>
+        </div>
+        <div class="cont-info-principal">
+          <div class="cont-user-icon">
+            <i class="user-icon far fa-user"></i>
+          </div>
+          <h4>Nombre de usuario</h4>
+          <input type="text" disabled class="username"></input>
+        </div>
+        <div class="cont-info-segundaria">
+          <h4>Nombre y Apellido</h4>
+          <input type="text" disabled class="name"></input>
+          <h4>Correo</h4>
+          <input type="text" disabled class="mail"></input>
+          <h4>Número de Telefono</h4>
+          <input type="text" disabled class="phone"></input>
+          <h4>Pagína Web</h4>
+          <input type="text" disabled class="website"></input>
+        </div>
+      </div>
+    </main>
+    <footer class="cont-footer">
+      <p>La Información usada es ficticia obtenida de la <strong>API</strong> de JSONPlaceholder, para más información con respecto a la <strong>API</strong> <a href="https://jsonplaceholder.typicode.com/" target="_blank">Click Aquí</a></p>
+    </footer>
+    <script src="js/users.js"></script>
+  </body>
+</html>
