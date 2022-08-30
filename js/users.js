@@ -1,28 +1,40 @@
 let idUser = 1;
-let name = document.querySelector(".name"),
-  username = document.querySelector(".username"),
-  mail = document.querySelector(".mail"),
-  phone = document.querySelector(".phone"),
-  website = document.querySelector(".website");
+const $contInfo = document.getElementById('contInfo'),
+  $name = document.getElementById("name"),
+  $mail = document.getElementById("mail"),
+  $phone = document.getElementById("phone"),
+  $website = document.getElementById("website");
 async function getUsers() {
   try {
-    if (idUser < 1) return alert("Estas en el principio de la lista de usuarios");
-    if (idUser >= 10) return alert("Estas en el final de la lista de usuarios");
+    if (idUser >= 10) idUser = 1
+    if (idUser < 1) idUser = 10
     let fetchUsers = await fetch(`https://jsonplaceholder.typicode.com/users/${idUser}`);
     if (!fetchUsers.ok) throw "Error al buscar usuario";
     let jsonUser = await fetchUsers.json();
-    let template = ``;
-    (template += name.value = jsonUser.name), (username.value = jsonUser.username), (mail.value = jsonUser.email), (phone.value = jsonUser.phone), (website.value = jsonUser.website);
+    $name.innerText = jsonUser.name;
+    $mail.innerText = jsonUser.email;
+    $phone.innerText = jsonUser.phone;
+    $website.innerText = jsonUser.website;
   } catch (err) {
     console.log(err);
   }
 }
-document.querySelector("#next").addEventListener("click", () => {
+document.getElementById("next").addEventListener("click", () => {
   idUser++;
+  $contInfo.classList.remove('cont-info-prev')
+  $contInfo.classList.add('cont-info-next')
   getUsers();
+  setTimeout(() => {
+    $contInfo.classList.remove('cont-info-next')
+  }, 400);
 });
-document.querySelector("#previous").addEventListener("click", () => {
+document.getElementById("previous").addEventListener("click", () => {
   idUser--;
+  $contInfo.classList.remove('cont-info-next')
+  $contInfo.classList.add('cont-info-prev')
   getUsers();
+  setTimeout(() => {
+    $contInfo.classList.remove('cont-info-prev')
+  }, 400);
 });
 getUsers();

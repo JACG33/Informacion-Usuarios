@@ -1,118 +1,104 @@
 :root {
-  --ligth-main-color: #1083d6;
-  --ligth-title-color: #2a3b47;
-  --ligth-text-color: #697477;
-  --ligth-light-text-color: #a0a7ac;
-  --ligth-border-color: #eff3f5;
-  --ligth-container-color: #ffffff;
-  --ligth-body-color: #fbfbfe;
-  --dark-main-color: #52a5e0;
-  --dark-title-color: #eff3f5;
-  --dark-text-color: #c8cdd0;
-  --dark-light-text-color: #a0a7ac;
-  --dark-border-color: #2a3b47;
-  --dark-container-color: #212e36;
-  --dark-body-color: #192229;
-}
-body {
-  background-color: var(--dark-body-color);
-  color: var(--dark-text-color);
-}
-.cont-header {
-  font-size: 20px;
-  color: var(--dark-title-color);
-  background: none;
-  border: none;
-  border-radius: 35px;
-  box-shadow: 11px 11px 26px #12181d, -11px -11px 26px #202c35;
-}
-.cont-header {
-  text-align: center;
-}
-.cont-principal {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-.user-icon {
-  font-size: 100px;
-  margin-top: 45px;
-}
-.cont-botones {
-  width: 100%;
-  margin: 30px 0px;
-  display: flex;
-  justify-content: space-evenly;
-}
-.cont-botones button {
-  outline: none;
-  cursor: pointer;
-  width: 120px;
-  height: 40px;
-  font-size: 20px;
-  color: var(--dark-text-color);
-  background: none;
-  border: none;
-  border-radius: 35px;
-  box-shadow: 11px 11px 26px #12181d, -11px -11px 26px #202c35;
-}
-.cont-botones button:active {
-  border-radius: 35px;
-  background: #192229;
-  box-shadow: inset 11px 11px 26px #12191e, inset -11px -11px 26px #202b34;
-}
-.cont-botones button:hover {
-  border: 1px solid var(--dark-main-color);
-}
-.cont-info-principal {
-  width: 45%;
-  height: 410px;
-  text-align: center;
-  border-radius: 35px;
-  box-shadow: 11px 11px 26px #12181d, -11px -11px 26px #202c35;
-}
-.cont-info-principal input {
-  text-align: center;
-  height: 30px;
-  color: var(--dark-text-color);
-  border: none;
-  border-radius: 35px;
-  background: #192229;
-  box-shadow: inset 11px 11px 26px #12181d, inset -11px -11px 26px #202c35;
-}
-.cont-info-segundaria {
-  width: 45%;
-  height: 410px;
-  text-align: center;
-  border-radius: 35px;
-  box-shadow: inset 11px 11px 26px #12181d, inset -11px -11px 26px #202c35;
+  --bg: #5880c5;
+  ;
+  --ligth-text: #cecece;
+  --white-color: #ffffff;
 }
 
-.cont-info-segundaria input {
-  text-align: center;
-  width: 220px;
-  height: 30px;
-  color: var(--dark-text-color);
-  border: none;
-  border-radius: 35px;
-  background: #192229;
-  box-shadow: 7px 7px 14px #12181d, -7px -7px 14px #202c35;
+body {
+  font-family: sans-serif;
+  height: -webkit-fill-available;
+  background-color: var(--bg);
 }
-.cont-footer {
+
+.cont-header {
   text-align: center;
-  color: var(--ligth-main-color);
-  margin: 45px 15px;
-  padding: 10px;
-  border-radius: 35px;
-  box-shadow: 11px 11px 26px #12181d, -11px -11px 26px #202c35;
 }
-@media screen and (max-width: 450px) {
-  .cont-principal {
-    flex-direction: column;
-    align-items: center;
+
+.cont-user-icon {
+  font-size: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25vh;
+  color: var(--white-color);
+}
+
+.cont-principal {
+  height: 75vh;
+  background-color: var(--white-color);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: auto;
+}
+
+.cont-info{
+  display: flex;
+  flex-direction: column;
+  margin: 10% auto;
+  padding: 10px 0px;
+  color: #202020;
+  font-size: 1.1rem;
+}
+
+.cont-info-next{
+  animation: slidenext .3s ease-in ;
+}
+.cont-info-prev{
+  animation: slideprev .3s ease-in ;
+}
+
+.label{
+  font-weight: 700;
+  min-width: 170px;
+  margin-bottom: 5px;
+}
+
+.cont-botones {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.cont-botones button {
+  background-color: #5880c5;
+  border: 1px solid transparent;
+  color: var(--white-color);
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.cont-botones button:hover {
+  background-color: transparent;
+  border: 1px solid #5880c5;
+  color: #5880c5;
+}
+
+/* Animations */
+@keyframes slidenext {
+  0%{transform: translateX(100%);}
+  /* 50%{width: 50%;} */
+  100%{transform: translateX(0%);}
+}
+@keyframes slideprev {
+  0%{transform: translateX(-100%);}
+  /* 50%{width: 50%;} */
+  100%{transform: translateX(0%);}
+}
+
+/* Media querys */
+
+@media screen and (min-width:425px) {
+  .cont-principal{
+    max-width: 70%;
   }
-  .cont-info-principal,
-  .cont-info-segundaria {
-    width: 85%;
-  }
+}
+
+/* Utilitis */
+
+.mb-1 {
+  margin-bottom: 1.5rem;
 }
